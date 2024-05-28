@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    body {
+        text-align: center;
+        font-weight: bold;
+        background: linear-gradient(to bottom, #f9f9fa, #afbef4);
+        height: 100vh;
+    }
+    button {
+        margin-top: 10%;
+        font-size: 120%;
+    }
+</style>
+
+<body>
+
+<button onclick="getInputAndFindPrimes()">Nhập mảng và tìm số nguyên tố</button>
+<p id="inputArray"></p>
+<p id="result"></p>
+
+<script>
+    function isPrime(num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function findPrimes(arr) {
+        let primeArray = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (isPrime(arr[i])) {
+                primeArray.push(arr[i]);
+            }
+        }
+        return primeArray.sort((a, b) => a - b);
+    }
+
+    function getInputAndFindPrimes() {
+        let inputString = prompt("Nhập mảng các số nguyên, cách nhau bằng dấu phẩy");
+        let inputArray = inputString.split(",").map(num => parseInt(num.trim()));
+        document.getElementById("inputArray").innerText = "Mảng đã nhập: [" + inputArray.join(", ") + "]";
+        let primeNumbers = findPrimes(inputArray);
+        document.getElementById("result").innerText = "Các số nguyên tố: " + primeNumbers.join(", ");
+    }
+</script>
+</body>
+</html>

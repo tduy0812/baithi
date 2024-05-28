@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+            font-weight: bold;
+            background: linear-gradient(to bottom, #f9f9fa, #afbef4);
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    // nhap mang
+    function getArrayFromUser() {
+        let n;
+        do {
+            n = parseInt(prompt("Nhập số lượng phần tử của mảng (n <= 20):"));
+            if (isNaN(n) || n <= 0 || n > 20) {
+                alert("Vui lòng nhập một số từ 1 đến 20.");
+            }
+        } while (isNaN(n) || n <= 0 || n > 20);
+        let arr = [];
+        for (let i = 0; i < n; i++) {
+            arr.push(parseInt(prompt(`Nhập phần tử thứ ${i + 1}:`)));
+        }
+        return arr;
+    }
+
+    // so chan tru so le
+    function calculateDifference(arr) {
+        let sumEven = 0;
+        let sumOdd = 0;
+
+        // tong cac so chan le
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                sumEven += arr[i]; // chan, them vao tong chan
+            } else {
+                sumOdd += arr[i]; // le, them vao tong le
+            }
+        }
+
+        // chan tru le
+        return sumEven - sumOdd;
+    }
+
+    // hien thi dsach mang
+    function displayArray(arr) {
+        document.write("Danh sách các phần tử của mảng:<br>");
+        document.write("[");
+        for (let i = 0; i < arr.length; i++) {
+            if (i !== 0) {
+                document.write(", ");
+            }
+            document.write(arr[i]);
+        }
+        document.write("]<br>");
+
+        // tong so chan le va kqua
+        let difference = calculateDifference(arr);
+        document.write("Kết quả sau khi thực hiện là: <strong>(" + arr.filter(x => x % 2 === 0).join("+") + ")-(" + arr.filter(x => x % 2 !== 0).join("+") + ") = " + difference + "</strong>");
+    }
+
+    // gọi ham lay mang
+    let array = getArrayFromUser();
+
+    // goi ham hien thi dsach mang va kqua
+    displayArray(array);
+</script>
+</body>
+</html>

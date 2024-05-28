@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    body {
+        text-align: center;
+        font-weight: bold;
+        background: linear-gradient(to bottom, #f9f9fa, #afbef4);
+        height: 100vh;
+    }
+    button {
+        margin-top: 10%;
+        font-size: 120%;
+    }
+</style>
+
+<body>
+<button onclick="getInputAndCount()">Nhập chuỗi và kiểm tra</button>
+
+<script>
+    function countUpperCaseCharacters(str) {
+        let count = 0;
+
+        // duyet ky tu trong chuoi
+        for (let i = 0; i < str.length; i++) {
+            // ktra neu la ky tu in hoa
+            if (str[i] >= 'A' && str[i] <= 'Z') {
+                count++; // tăng bien dem
+            }
+        }
+
+        // neu co it nhat 1 ky tu in hoa trong chuoi
+        if (count > 0) {
+            return count; // tra ve so luong ky tu in hoa
+        } else {
+            return "The String does not contain any upper case characters";
+        }
+    }
+
+    // nhap chuoi va hien thi kqua
+    function getInputAndCount() {
+        let userInput = prompt("Nhập chuỗi cần kiểm tra:");
+        let result = countUpperCaseCharacters(userInput);
+        alert(result);
+    }
+</script>
+
+</body>
+</html>

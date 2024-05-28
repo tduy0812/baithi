@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        text-align: center;
+        font-weight: bold;
+        background: linear-gradient(to bottom, #f9f9fa, #afbef4);
+        height: 100vh;
+    }
+    button {
+        margin-top: 5%;
+        font-size: 120%;
+    }
+    table {
+        margin: 0 auto; /* Để căn giữa bảng */
+        border-collapse: collapse; /* Để các ô của bảng nằm cạnh nhau mà không có khoảng cách */
+        width: 80%; /* Độ rộng của bảng */
+    }
+    th, td {
+        border: 1px solid black; /* Để hiển thị viền cho ô */
+        padding: 8px; /* Để tạo khoảng cách giữa nội dung và viền của ô */
+    }
+</style>
+<body>
+<div class="container">
+    <h1>Quản Lý Điện Thoại</h1>
+    <button onclick="themDienThoai()">Thêm Điện Thoại</button>
+    <div id="output"></div>
+    <script src="dienthoai.js"></script>
+    <script src="main.js"></script>
+</div>
+</body>
+</html>
